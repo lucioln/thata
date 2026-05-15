@@ -459,9 +459,22 @@ export default function App() {
         {step === 'success' && (
           <motion.div key="success" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
             className="z-10 text-center max-w-sm w-full bg-white rounded-3xl shadow-xl border border-rose-100 p-8 sm:p-10">
-            <motion.div animate={{ scale: [1, 1.12, 1] }} transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-              className="text-8xl mb-6">❤️</motion.div>
+          <motion.div animate={{ scale: [1, 1.12, 1] }} transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+              className="text-6xl mb-4">❤️</motion.div>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-5 leading-snug">Que alegria imensa! 🥹</h1>
+
+            {/* Foto final */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.7, ease: 'easeOut' }}
+              className="mb-6"
+            >
+              <div className="rounded-2xl overflow-hidden border-2 border-rose-100 shadow-lg">
+                <img src="/foto_final.jpg" alt="Nós dois" className="w-full object-cover max-h-64" />
+              </div>
+            </motion.div>
+
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed">{CONFIG.successMessage}</p>
           </motion.div>
         )}
@@ -478,9 +491,20 @@ function WelcomeScreen({ onStart }) {
   return (
     <motion.div key="welcome" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
       className="z-10 text-center max-w-sm w-full">
-      <motion.div className="text-7xl mb-6" animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 3 }}>🥰</motion.div>
+      {/* Foto do início */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.85 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.1, duration: 0.6, ease: 'easeOut' }}
+        className="mb-6"
+      >
+        <div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-rose-200 shadow-xl">
+          <img src="/foto_init.jpg" alt="Nossa foto" className="w-full h-full object-cover" />
+        </div>
+      </motion.div>
+
       <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">Para você, com amor 💕</h1>
-      <p className="text-gray-400 text-sm mb-8">Cada pergunta abre um pedacinho do meu coração.</p>
+      <p className="text-gray-400 text-sm mb-6">Cada pergunta abre um pedacinho do meu coração.</p>
 
       {/* Timeline */}
       <div className="bg-white rounded-3xl shadow-md border border-gray-100 p-5 mb-6 text-left space-y-4">
